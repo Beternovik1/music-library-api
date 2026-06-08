@@ -1,0 +1,30 @@
+{
+    "scripts": {
+        "dev": "nodemon app.js",
+        "start": "node app.js"
+    },
+    "name": "music-library-api",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Beternovik1/music-library-api.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/Beternovik1/music-library-api/issues"
+    },
+    "homepage": "https://github.com/Beternovik1/music-library-api#readme",
+    "dependencies": {
+        "express": "^5.2.1",
+        "joi": "^18.2.1",
+        "mongoose": "^9.6.3"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.14"
+    }
+}
