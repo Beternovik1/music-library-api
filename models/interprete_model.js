@@ -9,3 +9,32 @@
   Descripción: Modelo de Mongoose para la colección de intérpretes
 */
 
+// mongoose para definir el esquema
+const mongoose = require('mongoose');
+
+// generar un esquema para los albumes
+const interpreteSchema = new mongoose.Schema({
+  nombre: {
+    type: String,
+    required: true
+  },
+  nacionalidad: {
+    type: String,
+    required: true
+  },
+  fecha_nac: {
+    type: Date,
+    required: true
+  },
+  estado: {
+    type: Boolean,
+    default: true
+  },
+  albumes: {
+    type: [String],
+    default: 0
+  }
+});
+
+// exportar el modelo
+module.exports = mongoose.model('Interprete', interpreteSchema);

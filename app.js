@@ -14,8 +14,8 @@ const mongoose = require('mongoose');
 const albums = require('./routes/albums')
 const canciones = require('./routes/canciones')
 const interpretes = require('./routes/interpretes')
-// const albumsInterprete = require('./routes/albumsInterprete')
-// const cancionesAlbum = require('./routes/cancionesAlbum')
+const albumsInterprete = require('./routes/albumsInterprete');
+const cancionesAlbum = require('./routes/cancionesAlbum');
 
 mongoose.connect('mongodb://localhost:27017/biblioteca_musica')
         .then(() => console.log('Conectado a MongoDB !'))
@@ -26,6 +26,11 @@ const app = express();
 app.use(express.json());
 // para recibir informacion a traves de la peticion
 app.use(express.urlencoded({extended:true}));
+// middleware logger
+app.use(function(req, res, next) {
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+  next();
+});
 
 // rutas que usaremos
 app.use('/api/albums', albums);
@@ -33,8 +38,8 @@ app.use('/api/canciones', canciones);
 app.use('/api/interpretes', interpretes);
 
 // rutas de relaciones
-// app.use('/api/interpretes/:interpreteId/albums', albumsInterprete);
-// app.use('/api/albums/:albumId/canciones', cancionesAlbum);
+app.use('/api/albums-interprete', albumsInterprete);
+app.use('/api/canciones-album', cancionesAlbum);
 
 const port = 3000;
 
