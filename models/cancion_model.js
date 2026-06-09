@@ -6,35 +6,26 @@
   Fecha: 2026-06-08
   Profesor: Dr. Juan Carlos Gómez Carranza
   Autor: Alfaro Hernandez Edgar
-  Descripción: Modelo de Mongoose para la colección de intérpretes
+  Descripción: Modelo de Mongoose para la colección de canciones
 */
 
-// mongoose para definir el esquema
 const mongoose = require('mongoose');
 
 // generar un esquema para los albumes
-const interpreteSchema = new mongoose.Schema({
-  nombre: {
+const cancionSchema = new mongoose.Schema({
+  titulo: {
     type: String,
     required: true
   },
-  nacionalidad: {
-    type: String,
-    required: true
-  },
-  fecha_nac: {
-    type: Date,
+  duracion: {
+    type: Number,
     required: true
   },
   estado: {
     type: Boolean,
     default: true
-  },
-  albumes: {
-    type: [String],
-    default: 0
   }
 });
 
 // exportar el modelo
-module.exports = mongoose.model('Interprete', interpreteSchema);
+module.exports = mongoose.model('Cancion', cancionSchema);
