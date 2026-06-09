@@ -8,3 +8,16 @@
   Autor: Alfaro Hernandez Edgar
   Descripción: Rutas CRUD para la colección de álbumes
 */
+
+// express permite manejar las rutas
+const express = require('express');
+// enrutador, gestiona las rutas
+const ruta = express.Router();
+
+// ruta get
+ruta.get('/', (req, res) => {
+  res.json('Listo el GET de albums');
+});
+
+//exportar la ruta
+module.exports = ruta;

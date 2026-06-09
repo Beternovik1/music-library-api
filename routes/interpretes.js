@@ -8,3 +8,12 @@
   Autor: Alfaro Hernandez Edgar
   Descripción: Rutas CRUD para la colección de intérpretes
 */
+
+const express = require('express');
+const ruta = express.Router();
+
+ruta.get('/', (req, res) => {
+  res.json('Listo el GET de interpretes');
+});
+
+module.exports = ruta;
